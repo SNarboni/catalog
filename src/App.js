@@ -5,12 +5,13 @@ import {BrowserRouter, Switch, Route, Link} from "react-router-dom"
 import FilmDetail from "./components/FilmDetail"
 
 
+
 const movies = [
   {
     id : 1,
     title: "A Wrinkle in Time",
     director: "Ava DuVernay",
-    stars: ["Storm Reid", "Oprah Winfrey", "Reese Witherspoon"],
+    stars: ["Storm Reid ", "Oprah Winfrey ", "Reese Witherspoon"],
     image:
       'https://images-na.ssl-images-amazon.com/images/M/MV5BMjMxNjQ5MTI3MV5BMl5BanBnXkFtZTgwMjQ2MTAyNDM@._V1_UX182_CR0,0,182,268_AL_.jpg',
     description:
@@ -20,7 +21,7 @@ const movies = [
         id : 2,
     title: "The Strangers: Prey at Night",
     director: "Johannes Roberts",
-    stars: ["Christina Hendricks", "Bailee Madison", "Martin Henderson"],
+    stars: ["Christina Hendricks ", "Bailee Madison ", "Martin Henderson "],
     image:
       'https://images-na.ssl-images-amazon.com/images/M/MV5BMTY1OTIwODgzMV5BMl5BanBnXkFtZTgwMzUyMDgzNDM@._V1_UX182_CR0,0,182,268_AL_.jpg',
     description:
@@ -30,7 +31,7 @@ const movies = [
         id : 3,
     title: "The Hurricane Heist",
     director: "Rob Cohen",
-    stars: ["Toby Kebbell", "Maggie Grace", "Ryan Kwanten"],
+    stars: ["Toby Kebbell ", "Maggie Grace ", "Ryan Kwanten"],
     image:
       'https://images-na.ssl-images-amazon.com/images/M/MV5BMzg3Y2MyNjgtMzk4ZS00OTU3LWEwZmMtN2Y0NTdlZjU0NGFiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UX182_CR0,0,182,268_AL_.jpg',
     description:
@@ -40,7 +41,7 @@ const movies = [
         id : 4,
     title: "Gringo",
     director: "Nash Edgerton",
-    stars: ["Joel Edgerton", "Charlize Theron", "David Oyelowo"],
+    stars: ["Joel Edgerton ", "Charlize Theron ", "David Oyelowo"],
     image:
       'https://images-na.ssl-images-amazon.com/images/M/MV5BMjAyMTk2MTQ3Ml5BMl5BanBnXkFtZTgwNDQ2ODE0NDM@._V1_UX182_CR0,0,182,268_AL_.jpg',
     description:
@@ -50,7 +51,7 @@ const movies = [
         id : 5,
     title: "Thoroughbreds",
     director: "Cory Finley",
-    stars: ["Anya Taylor-Joy", "Olivia Cooke", "Anton Yelchin"],
+    stars: ["Anya Taylor-Joy ", "Olivia Cooke ", "Anton Yelchin"],
     image:
       'https://images-na.ssl-images-amazon.com/images/M/MV5BNDcyNDA4NDAzN15BMl5BanBnXkFtZTgwODQxMDQ5NDM@._V1_UX182_CR0,0,182,268_AL_.jpg',
     description:
@@ -70,7 +71,7 @@ const movies = [
         id : 7,
     title: "Black Panther",
     director: "Ryan Coogler",
-    stars: ["Chadwick Boseman", "Michael B. Jordan", "Lupita Nyong'o"],
+    stars: ["Chadwick Boseman ", "Michael B. Jordan ", "Lupita Nyong'o"],
     image:
       'https://images-na.ssl-images-amazon.com/images/M/MV5BMTg1MTY2MjYzNV5BMl5BanBnXkFtZTgwMTc4NTMwNDI@._V1_UX182_CR0,0,182,268_AL_.jpg',
     description:
@@ -80,7 +81,7 @@ const movies = [
         id : 8,
     title: "Red Sparrow",
     director: "Francis Lawrence",
-    stars: ["Jennifer Lawrence", "Joel Edgerton", "Matthias Schoenaerts"],
+    stars: ["Jennifer Lawrence ", "Joel Edgerton ", "Matthias Schoenaerts"],
     image:
       'https://images-na.ssl-images-amazon.com/images/M/MV5BMTA3MDkxOTc4NDdeQTJeQWpwZ15BbWU4MDAxNzgyNTQz._V1_UX182_CR0,0,182,268_AL_.jpg',
     description:
@@ -102,17 +103,28 @@ class App extends React.Component{
     return(
      <BrowserRouter>
         <Switch>
-          <Route exact path="/" render={()=> {return <div className="container">
+          <Route exact path="/" render={()=> {return (
+      <main>
+        <nav class="navbar navbar-light bg-light">
+          <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1">Mon site de film by Seb</span>
+          </div>
+        </nav>
+        <div className="container">
           <div className="row">
-            <ul>         
+            <div className="col-12 d-flex justify-content-center">
+            <ul className="list-group text-center">         
               {movies.map((item) => {
               return (<Link to={`/film/${item.id}`}>
-                      <li>{item.title}</li>
+                      <li className='list-group-item my-1 shadow rounded'>{item.title}</li>
                     </Link>)
             })}
             </ul> 
+            </div>
           </div>
-        </div>}}/>
+        </div>}
+      </main>
+        )}}/>
           <Route path="/film/:id" render={(props)=> {return <FilmDetail {...props} movies={movies}></FilmDetail>}}/>
         </Switch>
       </BrowserRouter>
