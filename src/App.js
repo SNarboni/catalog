@@ -104,7 +104,7 @@ class App extends React.Component{
      <BrowserRouter>
         <Switch>
           <Route exact path="/" render={()=> {return (
-      <main>
+          <main>
         <nav class="navbar navbar-light bg-light">
           <div class="container-fluid">
             <span class="navbar-brand mb-0 h1">Mon site de film by Seb</span>
@@ -122,8 +122,8 @@ class App extends React.Component{
             </ul> 
             </div>
           </div>
-        </div>}
-      </main>
+        </div>
+        </main>
         )}}/>
           <Route path="/film/:id" render={(props)=> {return <FilmDetail {...props} movies={movies}></FilmDetail>}}/>
         </Switch>
